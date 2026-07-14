@@ -1,0 +1,441 @@
+[
+  {
+    "config": {
+      "configFile": "/Users/promode/Documents/AdvancePlaywrightFramework1x/playwright.config.ts",
+      "rootDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/src/tests",
+      "forbidOnly": false,
+      "fullyParallel": true,
+      "globalSetup": null,
+      "globalTeardown": null,
+      "globalTimeout": 0,
+      "grep": {},
+      "grepInvert": null,
+      "maxFailures": 0,
+      "metadata": {
+        "actualWorkers": 1
+      },
+      "preserveOutput": "always",
+      "projects": [
+        {
+          "outputDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/test-results",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "id": "api",
+          "name": "api",
+          "testDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/src/tests",
+          "testIgnore": [],
+          "testMatch": [
+            "/src\\/tests\\/apiTests\\/.*\\.spec\\.ts/"
+          ],
+          "timeout": 60000
+        },
+        {
+          "outputDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/test-results",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "id": "chromium",
+          "name": "chromium",
+          "testDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/src/tests",
+          "testIgnore": [
+            "/src\\/tests\\/apiTests\\/.*\\.spec\\.ts/"
+          ],
+          "testMatch": [
+            "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          ],
+          "timeout": 60000
+        }
+      ],
+      "quiet": false,
+      "reporter": [
+        [
+          "/Users/promode/Documents/AdvancePlaywrightFramework1x/src/utils/CustomReporter.ts",
+          null
+        ],
+        [
+          "html",
+          {
+            "outputFolder": "playwright-report"
+          }
+        ],
+        [
+          "json",
+          {
+            "outputFile": "test-results/results.json"
+          }
+        ],
+        [
+          "/Users/promode/Documents/AdvancePlaywrightFramework1x/node_modules/allure-playwright/dist/cjs/index.js",
+          {
+            "resultsDir": "allure-results",
+            "reportName": "TTACart Automation Report",
+            "environmentInfo": {
+              "Environment": "api",
+              "BaseURL": "https://restful-booker.herokuapp.com",
+              "Node": "v22.22.3",
+              "OS": "darwin",
+              "CI": "false"
+            },
+            "categories": [
+              {
+                "name": "Assertion failures",
+                "matchedStatuses": [
+                  "failed"
+                ]
+              },
+              {
+                "name": "Broken tests / errors",
+                "matchedStatuses": [
+                  "broken"
+                ]
+              },
+              {
+                "name": "Timeouts",
+                "matchedStatuses": [
+                  "broken",
+                  "failed"
+                ],
+                "messageRegex": ".*Timeout.*"
+              }
+            ]
+          }
+        ],
+        [
+          "list",
+          null
+        ]
+      ],
+      "reportSlowTests": {
+        "max": 5,
+        "threshold": 300000
+      },
+      "shard": null,
+      "tags": [],
+      "updateSnapshots": "missing",
+      "updateSourceMethod": "patch",
+      "version": "1.60.0",
+      "workers": 8,
+      "webServer": null
+    },
+    "suites": [
+      {
+        "title": "apiTests/05_ajv_schema/create-booking-schema.spec.ts",
+        "file": "apiTests/05_ajv_schema/create-booking-schema.spec.ts",
+        "column": 0,
+        "line": 0,
+        "specs": [],
+        "suites": [
+          {
+            "title": "@P0 @regression Ajv schema validation - POST /booking",
+            "file": "apiTests/05_ajv_schema/create-booking-schema.spec.ts",
+            "line": 27,
+            "column": 6,
+            "specs": [
+              {
+                "title": "validates the create-booking contract",
+                "ok": true,
+                "tags": [
+                  "P0",
+                  "regression"
+                ],
+                "tests": [
+                  {
+                    "timeout": 60000,
+                    "annotations": [],
+                    "expectedStatus": "passed",
+                    "projectId": "api",
+                    "projectName": "api",
+                    "results": [
+                      {
+                        "workerIndex": 0,
+                        "parallelIndex": 0,
+                        "status": "passed",
+                        "duration": 1047,
+                        "errors": [],
+                        "stdout": [
+                          {
+                            "text": "2026-06-18 08:14:29 [\u001b[32minfo\u001b[39m] [schema-validation] Step 1: static sample valid=true\n"
+                          },
+                          {
+                            "text": "2026-06-18 08:14:30 [\u001b[32minfo\u001b[39m] [schema-validation] Step 2: live booking 1944 valid=true\n"
+                          },
+                          {
+                            "text": "2026-06-18 08:14:30 [\u001b[32minfo\u001b[39m] [schema-validation] Step 3: broken object valid=false, 3 errors\n"
+                          }
+                        ],
+                        "stderr": [],
+                        "retry": 0,
+                        "steps": [
+                          {
+                            "title": "Static sample matches the schema",
+                            "duration": 16
+                          },
+                          {
+                            "title": "Live POST /booking response matches the schema",
+                            "duration": 1010
+                          },
+                          {
+                            "title": "Invalid object is rejected by the schema",
+                            "duration": 1
+                          }
+                        ],
+                        "startTime": "2026-06-18T02:44:29.251Z",
+                        "annotations": [],
+                        "attachments": [
+                          {
+                            "name": "validated-response",
+                            "contentType": "application/json",
+                            "body": "ewogICJib29raW5naWQiOiAxOTQ0LAogICJib29raW5nIjogewogICAgImZpcnN0bmFtZSI6ICJTY2hlbWEiLAogICAgImxhc3RuYW1lIjogIkNvbnJveSIsCiAgICAidG90YWxwcmljZSI6IDgzMCwKICAgICJkZXBvc2l0cGFpZCI6IHRydWUsCiAgICAiYm9va2luZ2RhdGVzIjogewogICAgICAiY2hlY2tpbiI6ICIyMDI2LTAyLTAxIiwKICAgICAgImNoZWNrb3V0IjogIjIwMjYtMDEtMjEiCiAgICB9LAogICAgImFkZGl0aW9uYWxuZWVkcyI6ICJCcmVha2Zhc3QiCiAgfQp9"
+                          }
+                        ]
+                      }
+                    ],
+                    "status": "expected"
+                  }
+                ],
+                "id": "ec18f6b3e57238c75d77-be5e18178da87c97aa1f",
+                "file": "apiTests/05_ajv_schema/create-booking-schema.spec.ts",
+                "line": 28,
+                "column": 9
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "startTime": "2026-06-18T02:44:27.764Z",
+      "duration": 2564.5330000000004,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "Here is the Build Result 2",
+  {
+    "config": {
+      "configFile": "/Users/promode/Documents/AdvancePlaywrightFramework1x/playwright.config.ts",
+      "rootDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/src/tests",
+      "forbidOnly": false,
+      "fullyParallel": true,
+      "globalSetup": null,
+      "globalTeardown": null,
+      "globalTimeout": 0,
+      "grep": {},
+      "grepInvert": null,
+      "maxFailures": 0,
+      "metadata": {
+        "actualWorkers": 1
+      },
+      "preserveOutput": "always",
+      "projects": [
+        {
+          "outputDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/test-results",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "id": "api",
+          "name": "api",
+          "testDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/src/tests",
+          "testIgnore": [],
+          "testMatch": [
+            "/src\\/tests\\/apiTests\\/.*\\.spec\\.ts/"
+          ],
+          "timeout": 60000
+        },
+        {
+          "outputDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/test-results",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "id": "chromium",
+          "name": "chromium",
+          "testDir": "/Users/promode/Documents/AdvancePlaywrightFramework1x/src/tests",
+          "testIgnore": [
+            "/src\\/tests\\/apiTests\\/.*\\.spec\\.ts/"
+          ],
+          "testMatch": [
+            "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          ],
+          "timeout": 60000
+        }
+      ],
+      "quiet": false,
+      "reporter": [
+        [
+          "/Users/promode/Documents/AdvancePlaywrightFramework1x/src/utils/CustomReporter.ts",
+          null
+        ],
+        [
+          "html",
+          {
+            "outputFolder": "playwright-report"
+          }
+        ],
+        [
+          "json",
+          {
+            "outputFile": "test-results/results.json"
+          }
+        ],
+        [
+          "/Users/promode/Documents/AdvancePlaywrightFramework1x/node_modules/allure-playwright/dist/cjs/index.js",
+          {
+            "resultsDir": "allure-results",
+            "reportName": "TTACart Automation Report",
+            "environmentInfo": {
+              "Environment": "api",
+              "BaseURL": "https://restful-booker.herokuapp.com",
+              "Node": "v22.22.3",
+              "OS": "darwin",
+              "CI": "false"
+            },
+            "categories": [
+              {
+                "name": "Assertion failures",
+                "matchedStatuses": [
+                  "failed"
+                ]
+              },
+              {
+                "name": "Broken tests / errors",
+                "matchedStatuses": [
+                  "broken"
+                ]
+              },
+              {
+                "name": "Timeouts",
+                "matchedStatuses": [
+                  "broken",
+                  "failed"
+                ],
+                "messageRegex": ".*Timeout.*"
+              }
+            ]
+          }
+        ],
+        [
+          "list",
+          null
+        ]
+      ],
+      "reportSlowTests": {
+        "max": 5,
+        "threshold": 300000
+      },
+      "shard": null,
+      "tags": [],
+      "updateSnapshots": "missing",
+      "updateSourceMethod": "patch",
+      "version": "1.60.0",
+      "workers": 8,
+      "webServer": null
+    },
+    "suites": [
+      {
+        "title": "apiTests/05_ajv_schema/create-booking-schema.spec.ts",
+        "file": "apiTests/05_ajv_schema/create-booking-schema.spec.ts",
+        "column": 0,
+        "line": 0,
+        "specs": [],
+        "suites": [
+          {
+            "title": "@P0 @regression Ajv schema validation - POST /booking",
+            "file": "apiTests/05_ajv_schema/create-booking-schema.spec.ts",
+            "line": 27,
+            "column": 6,
+            "specs": [
+              {
+                "title": "validates the create-booking contract",
+                "ok": true,
+                "tags": [
+                  "P0",
+                  "regression"
+                ],
+                "tests": [
+                  {
+                    "timeout": 60000,
+                    "annotations": [],
+                    "expectedStatus": "passed",
+                    "projectId": "api",
+                    "projectName": "api",
+                    "results": [
+                      {
+                        "workerIndex": 0,
+                        "parallelIndex": 0,
+                        "status": "passed",
+                        "duration": 1047,
+                        "errors": [],
+                        "stdout": [
+                          {
+                            "text": "2026-06-18 08:14:29 [\u001b[32minfo\u001b[39m] [schema-validation] Step 1: static sample valid=true\n"
+                          },
+                          {
+                            "text": "2026-06-18 08:14:30 [\u001b[32minfo\u001b[39m] [schema-validation] Step 2: live booking 1944 valid=true\n"
+                          },
+                          {
+                            "text": "2026-06-18 08:14:30 [\u001b[32minfo\u001b[39m] [schema-validation] Step 3: broken object valid=false, 3 errors\n"
+                          }
+                        ],
+                        "stderr": [],
+                        "retry": 0,
+                        "steps": [
+                          {
+                            "title": "Static sample matches the schema",
+                            "duration": 16
+                          },
+                          {
+                            "title": "Live POST /booking response matches the schema",
+                            "duration": 1010
+                          },
+                          {
+                            "title": "Invalid object is rejected by the schema",
+                            "duration": 1
+                          }
+                        ],
+                        "startTime": "2026-06-18T02:44:29.251Z",
+                        "annotations": [],
+                        "attachments": [
+                          {
+                            "name": "validated-response",
+                            "contentType": "application/json",
+                            "body": "ewogICJib29raW5naWQiOiAxOTQ0LAogICJib29raW5nIjogewogICAgImZpcnN0bmFtZSI6ICJTY2hlbWEiLAogICAgImxhc3RuYW1lIjogIkNvbnJveSIsCiAgICAidG90YWxwcmljZSI6IDgzMCwKICAgICJkZXBvc2l0cGFpZCI6IHRydWUsCiAgICAiYm9va2luZ2RhdGVzIjogewogICAgICAiY2hlY2tpbiI6ICIyMDI2LTAyLTAxIiwKICAgICAgImNoZWNrb3V0IjogIjIwMjYtMDEtMjEiCiAgICB9LAogICAgImFkZGl0aW9uYWxuZWVkcyI6ICJCcmVha2Zhc3QiCiAgfQp9"
+                          }
+                        ]
+                      }
+                    ],
+                    "status": "expected"
+                  }
+                ],
+                "id": "ec18f6b3e57238c75d77-be5e18178da87c97aa1f",
+                "file": "apiTests/05_ajv_schema/create-booking-schema.spec.ts",
+                "line": 28,
+                "column": 9
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "startTime": "2026-06-18T02:44:27.764Z",
+      "duration": 2564.5330000000004,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  }
+]

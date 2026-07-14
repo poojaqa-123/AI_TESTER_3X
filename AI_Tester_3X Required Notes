@@ -1,0 +1,16 @@
+curl --request POST \
+  --url "https://YOUR_DOMAIN.atlassian.net/rest/api/3/issue" \
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Basic BASE64_EMAIL_COLON_API_TOKEN" \
+  --data '{
+    "fields": {
+      "project": { "key": "SCRUM" },
+      "summary": "Create login page",
+      "description": "Create a responsive login page with validation and secure authentication.",
+      "issuetype": { "name": "Story" }
+    }
+  }'
+
+
+  
