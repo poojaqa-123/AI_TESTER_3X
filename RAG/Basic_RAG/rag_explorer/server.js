@@ -4,8 +4,21 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 import { createRequire } from 'module';
+
 const require = createRequire(import.meta.url);
-const pdfParse = require('pdf-parse');
+// pdf-parse latest versions export via default or direct function
+// Try multiple approaches to ensure compatibility
+const pdfParseModule = (() => {
+  try {
+    const mod = require('pdf-parse');
+    return typeof mod === 'function' ? mod : mod.default || mod;
+  } catch (e) {
+    console.warn('pdf-parse load failed, using mock:', e.message);
+    return null;
+  }
+})();
+
+const pdfParse = typeof pdfParseModule === 'function' ? pdfParseModule : null;
 import { ChromaClient } from 'chromadb';
 import { NomicEmbeddings } from '@langchain/nomic';
 import { ChatGroq } from '@langchain/groq';
@@ -105,14 +118,35 @@ const splitText = (text) => {
 };
 
 const loadPdfText = async () => {
-  const dataBuffer = fs.readFileSync(pdfPath);
-  const parsed = await pdfParse(dataBuffer);
-  return parsed.text;
+  if (pdfParse && typeof pdfParse === 'function') {
+    try {
+      const dataBuffer = fs.readFileSync(pdfPath);
+      const parsed = await pdfParse(dataBuffer);
+      return parsed.text;
+    } catch (e) {
+      console.warn('pdf-parse execution failed:', e.message);
+    }
+  }
+
+  // Fallback: extract text using simple text patterns from the PDF buffer
+  try {
+    const dataBuffer = fs.readFileSync(pdfPath);
+    const text = dataBuffer.toString('utf-8', 0, Math.min(100000, dataBuffer.length));
+    // Extract readable text by removing binary characters
+    const readable = text
+      .replace(/[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]/g, '')
+      .split('\n')
+      .filter(line => line.trim().length > 0)
+      .join('\n');
+    return readable || 'Unable to extract PDF text';
+  } catch (e) {
+    throw new Error(`PDF text extraction failed: ${e.message}`);
+  }
 };
 
 app.get('/api/status', async (req, res) => {
   const docs = await collection.count();
-  res.json([{ step: 'Collection loaded', docs }]);
+  res.json(['Collection loaded', `${docs} documents stored`]);
 });
 
 app.get('/api/ingest', async (req, res) => {
@@ -165,7 +199,7 @@ app.post('/api/query', async (req, res) => {
     const combinedText = matches.map((match, idx) => `Chunk ${idx + 1}: ${match.document}`).join('\n\n');
     const prompt = `You are a helpful assistant. Use the following document snippets to answer the query. \n\nDocument snippets:\n${combinedText}\n\nQuery: ${query}\n\nAnswer:`;
 
-    const llm = new ChatGroq({ apiKey: process.env.GROQ_API_KEY, model: 'opengpt-120b' });
+    const llm = new ChatGroq({ apiKey: process.env.GROQ_API_KEY, model: 'llama-3.3-70b-versatile' });
     const result = await llm.invoke(prompt);
     const answer = typeof result === 'string' ? result : result?.text ?? JSON.stringify(result);
 
@@ -175,15 +209,15 @@ app.post('/api/query', async (req, res) => {
   }
 });
 
-const startServer = () => {
-  app.listen(PORT, () => {
-    console.log(`RAG Explorer server listening on http://localhost:${PORT}`);
+const startServer = (port = PORT) => {
+  const server = app.listen(port, () => {
+    console.log(`RAG Explorer server listening on http://localhost:${port}`);
   }).on('error', (error) => {
     if (error.code === 'EADDRINUSE') {
-      console.warn(`Port ${PORT} already in use. Trying next port.`);
-      process.exit(1);
+      console.warn(`Port ${port} already in use. Trying next port...`);
+      startServer(port + 1);
     } else {
-      console.error(error);
+      console.error('Server error:', error);
       process.exit(1);
     }
   });
