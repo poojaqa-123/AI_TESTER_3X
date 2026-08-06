@@ -1,0 +1,86 @@
+TC_ID,Module,Test_Scenario,Preconditions,Test_Steps,Test_Data,Expected_Result,Priority,Test_Type
+TC_001,Home & Navigation,Verify home page loads,None,Open the supplied URL,,Home page loads without broken layout or blocking error,High,Functional
+TC_002,Home & Navigation,Verify page title/branding,Home page open,Inspect browser title and visible branding,,Ace Online Shoe Portal branding is displayed consistently,Medium,UI
+TC_003,Home & Navigation,Verify home navigation is visible,Home page open,Inspect header/menu,,"Home, Sign In Portal, Online Products, About, Our Team and Contact links are visible",High,UI
+TC_004,Home & Navigation,Navigate using Home link,Any portal page open,Click Home,,User returns to the home page,Medium,Navigation
+TC_005,Home & Navigation,Navigate to Sign In Portal,Home page open,Click Sign In Portal,,Sign-in page opens successfully,High,Navigation
+TC_006,Home & Navigation,Navigate to Online Products,Home page open,Click Online Products,,Online products page opens successfully,High,Navigation
+TC_007,Home & Navigation,Navigate to About section,Home page open,Click About,,About content/section is displayed or page scrolls to it,Medium,Navigation
+TC_008,Home & Navigation,Navigate to Our Team section,Home page open,Click Our Team,,Our Team content/section is displayed or page scrolls to it,Medium,Navigation
+TC_009,Home & Navigation,Navigate to Contact section,Home page open,Click Contact,,Contact content/section is displayed or page scrolls to it,Medium,Navigation
+TC_010,Home & Navigation,Verify active navigation state,Portal accessible,Open each primary page and inspect menu,,Current page/section is visually distinguishable where designed,Low,UI
+TC_011,Home & Navigation,Verify footer copyright,Home page open,Scroll to bottom,,Ace Online Shoe Portal/Ace Automation copyright text is shown,Low,UI
+TC_012,Home & Navigation,Verify internal links do not 404,Home page open,Open every visible internal link,,Each link resolves to an intended page or section,High,Functional
+TC_013,Home & Navigation,Browser back navigation,Home page open,Open Products then press Back,,Previous page is restored correctly,Medium,Navigation
+TC_014,Home & Navigation,Browser forward navigation,Products page previously visited,Go back then press Forward,,Forward navigation restores Products page,Low,Navigation
+TC_015,Home & Navigation,Direct deep-link access,Valid URL,Open SignIn.html/OnlineProducts.html directly,,Target page loads without requiring home-page navigation,Medium,Compatibility
+TC_016,Authentication,Verify sign-in form controls,None,Open sign-in page,,"Username/email, password and sign-in action are present",High,UI
+TC_017,Authentication,Submit valid credentials,Registered user exists,Enter valid registered credentials and submit,,User is authenticated or a clear success response is shown,High,Functional
+TC_018,Authentication,Submit blank form,Sign-in page open,Submit without entering values,,Required-field validation is displayed and submission is prevented,High,Negative
+TC_019,Authentication,Blank username,Sign-in page open,Leave username empty; enter password; submit,,Username validation is displayed,High,Negative
+TC_020,Authentication,Blank password,Sign-in page open,Enter username; leave password empty; submit,,Password validation is displayed,High,Negative
+TC_021,Authentication,Invalid username,Sign-in page open,Enter unknown username and valid-format password,,Authentication fails safely with a clear error,High,Negative
+TC_022,Authentication,Invalid password,Registered user exists,Enter valid username and wrong password,,Authentication fails without exposing account details,High,Security
+TC_023,Authentication,Both credentials invalid,Sign-in page open,Enter unknown username and wrong password,,Generic authentication failure is shown,High,Security
+TC_024,Authentication,Password masking,Sign-in page open,Type password,,Password characters are masked,Medium,Security
+TC_025,Authentication,Password copy behavior,Sign-in page open,Attempt to copy password field,,Behavior follows intended security policy,Low,Security
+TC_026,Authentication,Username trimming,Registered user exists,Enter leading/trailing spaces with valid username,,Spaces are trimmed or rejected consistently; no unexpected authentication,Medium,Validation
+TC_027,Authentication,Password case sensitivity,Registered user exists,Change password letter case,,Only the exact valid password is accepted,High,Security
+TC_028,Authentication,Special characters in username,Sign-in page open,Use supported special characters,,Input is handled without script errors or unsafe rendering,Medium,Security
+TC_029,Authentication,Very long username,Sign-in page open,Enter 256-character username,,Input is bounded/validated and page remains responsive,Medium,Boundary
+TC_030,Authentication,Very long password,Sign-in page open,Enter 256-character password,,Input is bounded/validated and page remains responsive,Medium,Boundary
+TC_031,Authentication,Keyboard submit,Valid test credentials,Fill form and press Enter,,Form submits once using keyboard,Medium,Accessibility
+TC_032,Authentication,Tab order,Sign-in page open,Navigate controls with Tab,,Focus follows a logical order and remains visible,Medium,Accessibility
+TC_033,Authentication,Register Here link,Sign-in page open,Click New User/Register Here,,Registration page/form opens successfully,High,Navigation
+TC_034,Authentication,Refresh sign-in page,Sign-in page open,Refresh while form is empty/filled,,Page reloads correctly and sensitive password is not unexpectedly persisted,Medium,Security
+TC_035,Authentication,Repeated sign-in clicks,Sign-in page open,Click submit repeatedly,,Only one request/action is processed or duplicate actions are prevented,High,Reliability
+TC_036,Online Products,Verify products page loads,None,Open OnlineProducts.html,,Product catalog loads with product cards/content,High,Functional
+TC_037,Online Products,Verify product images,Products page open,Inspect all product cards,,"Images load, have suitable dimensions and do not overlap text",Medium,UI
+TC_038,Online Products,Verify product names,Products page open,Inspect catalog,,Each displayed product has a readable name,Medium,Content
+TC_039,Online Products,Verify product descriptions,Products page open,Inspect catalog,,Descriptions are readable and associated with the correct item,Medium,Content
+TC_040,Online Products,Verify product prices,Products page open,Inspect catalog,,Prices are displayed with consistent currency/format where applicable,High,Content
+TC_041,Online Products,Verify product links/buttons,Products page open,Inspect each product action,,"Each action is visible, clickable and targets the correct product flow",High,Functional
+TC_042,Online Products,Open first product,Products page open,Click first product/action,,Correct first product details/action opens,High,Functional
+TC_043,Online Products,Open last product,Products page open,Click last product/action,,Correct last product details/action opens,Medium,Functional
+TC_044,Online Products,Product card alignment,Products page open,Inspect cards at desktop width,,Cards align consistently with no clipping,Medium,UI
+TC_045,Online Products,Empty/slow image fallback,Products page open,Throttle or block image request,,Alt text or graceful placeholder appears; layout remains usable,Medium,Resilience
+TC_046,Online Products,Refresh products,Products page open,Refresh catalog,,Catalog reloads without duplicate content,Medium,Reliability
+TC_047,Online Products,Products scroll behavior,Products page open,Scroll from top to bottom,,All catalog content can be reached and no horizontal overflow occurs,Medium,UI
+TC_048,Online Products,Shoe types navigation,Products page open,Use available shoe-type link/action,,ShoeTypes page/section opens correctly,High,Navigation
+TC_049,Online Products,Product text encoding,Products page open,Inspect apostrophes/special punctuation,,Text renders correctly without mojibake,Low,Content
+TC_050,Online Products,Product link new-tab behavior,Products page open,Open product link using new tab if supported,,Target opens correctly and original catalog remains intact,Low,Navigation
+TC_051,Online Products,Back from product flow,Product action available,Open a product action then Back,,Catalog state is restored without an unexpected error,Medium,Navigation
+TC_052,Online Products,Repeated product action,Products page open,Click same action twice,,No unintended duplicate operation occurs,Medium,Reliability
+TC_053,Online Products,Product keyboard access,Products page open,Focus product actions and press Enter,,Focused product action activates successfully,Medium,Accessibility
+TC_054,Online Products,Product focus visibility,Products page open,Tab through catalog actions,,Focused element is visually identifiable,Medium,Accessibility
+TC_055,Online Products,Catalog at 320px,Products page open,Open at 320px viewport,,Content is readable and usable without horizontal scrolling,High,Responsive
+TC_056,Online Products,Catalog at tablet width,Products page open,Open at 768px viewport,,Cards reflow without overlap,Medium,Responsive
+TC_057,Online Products,Catalog at large desktop,Products page open,Open at 1440px viewport,,Content remains centered and visually consistent,Low,Responsive
+TC_058,Online Products,Invalid product URL,Products page open,Alter product link/path if applicable,,A controlled not-found/error response is displayed,Medium,Negative
+TC_059,Online Products,Catalog HTML validation,Products page open,Inspect DOM for duplicate IDs/basic errors,,No critical markup errors prevent interaction,Low,Compatibility
+TC_060,Online Products,Catalog load on slow network,Products page open,Use throttled network and reload,,Page gives usable loading behavior and eventually renders content,Medium,Performance
+TC_061,Shoe Types,Verify ShoeTypes page loads,None,Open ShoeTypes.html,,Shoe categories/content load successfully,High,Functional
+TC_062,Shoe Types,Verify category headings,ShoeTypes page open,Inspect page headings,,Category headings are readable and correctly associated,Medium,Content
+TC_063,Shoe Types,Verify running/training content,ShoeTypes page open,Locate running/training category,,Running/training-related information is displayed correctly,Medium,Content
+TC_064,Shoe Types,Verify court sports content,ShoeTypes page open,Locate court-sports category,,Court-sports-related information is displayed correctly,Medium,Content
+TC_065,Shoe Types,Verify field sports content,ShoeTypes page open,Locate field-sports category,,Field-sports-related information is displayed correctly,Medium,Content
+TC_066,Shoe Types,Verify winter/outdoor content,ShoeTypes page open,Locate winter/outdoor categories,,Relevant category information is displayed correctly,Medium,Content
+TC_067,Shoe Types,Verify track and field content,ShoeTypes page open,Locate track/field content,,Relevant category information is displayed correctly,Low,Content
+TC_068,Shoe Types,Verify category images,ShoeTypes page open,Inspect category images,,Images load and match their category,Medium,UI
+TC_069,Shoe Types,Shoe types navigation back,ShoeTypes page open,Click Home or browser Back,,User returns to the previous intended page,Medium,Navigation
+TC_070,Shoe Types,Shoe types responsive mobile,ShoeTypes page open,Open at 320px viewport,,Text and images reflow without clipping,High,Responsive
+TC_071,Shoe Types,Shoe types responsive tablet,ShoeTypes page open,Open at 768px viewport,,Layout remains usable and aligned,Medium,Responsive
+TC_072,Shoe Types,Shoe types keyboard navigation,ShoeTypes page open,Tab through links/actions,,Interactive elements are keyboard reachable,Medium,Accessibility
+TC_073,Shoe Types,Shoe types image fallback,ShoeTypes page open,Block category images,,Alt text/placeholder preserves meaning,Medium,Resilience
+TC_074,Shoe Types,Shoe types deep link refresh,ShoeTypes page open,Refresh ShoeTypes.html,,Page remains available after refresh,Medium,Reliability
+TC_075,Shoe Types,Shoe types no horizontal overflow,ShoeTypes page open,Inspect narrow viewport,,No unintended horizontal scrolling is required,Medium,UI
+TC_076,Cross-cutting Quality,Chrome compatibility,Portal URL available,Open portal in current Chrome,,Pages and primary flows work without console-blocking errors,High,Compatibility
+TC_077,Cross-cutting Quality,Firefox compatibility,Portal URL available,Open portal in current Firefox,,Pages and primary flows work correctly,Medium,Compatibility
+TC_078,Cross-cutting Quality,Safari compatibility,Portal URL available,Open portal in current Safari,,Pages and primary flows work correctly,Medium,Compatibility
+TC_079,Cross-cutting Quality,JavaScript disabled behavior,Portal URL available,Disable JavaScript and open pages,,Content remains understandable or a clear limitation is communicated,Low,Compatibility
+TC_080,Cross-cutting Quality,HTTPS access,Internet available,Open supplied HTTPS URL,,Site is served over HTTPS without mixed-content blocking for core content,High,Security
+TC_081,Cross-cutting Quality,XSS input safety,Sign-in page open,Enter HTML/script-like text in sign-in inputs,,Input is treated as data and not executed or reflected unsafely,High,Security
+TC_082,Cross-cutting Quality,Error handling,Portal previously loaded,Use offline mode and navigate,,User receives a controlled failure rather than a blank/broken page,Medium,Resilience
+TC_083,Cross-cutting Quality,Accessibility headings,Any content page open,Inspect heading hierarchy,,Headings follow a logical hierarchy,Medium,Accessibility
+TC_084,Cross-cutting Quality,Accessibility image alt text,Any content page open,Inspect meaningful images,,Meaningful images have descriptive alt text; decorative images are appropriately marked,Medium,Accessibility
+TC_085,Cross-cutting Quality,Color contrast/readability,Any content page open,Inspect text and controls,,Text and controls remain readable against their backgrounds,Medium,Accessibility
