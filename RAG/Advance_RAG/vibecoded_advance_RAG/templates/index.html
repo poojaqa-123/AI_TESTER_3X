@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advanced RAG Explorer — VWO Test Cases</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div id="app">
+
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span> Advanced RAG Explorer</div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="upload">Upload</button>
+      <button class="tab-btn" data-tab="ingest">Ingest</button>
+      <button class="tab-btn" data-tab="chunks">Chunks</button>
+      <button class="tab-btn" data-tab="chat">Chat</button>
+    </div>
+    <div class="status-pill" id="statusPill"><span class="led off"></span> loading…</div>
+  </div>
+
+  <div class="body">
+    <div class="tracker" id="tracker">
+      <h3 id="trackerTitle">Pipeline</h3>
+      <div id="trackerStages"></div>
+    </div>
+
+    <div class="content">
+
+      <!-- UPLOAD -->
+      <section class="panel active" id="panel-upload">
+        <div class="card">
+          <h2>1 · Upload a source file</h2>
+          <div class="sub">.csv, .xlsx or .xls — e.g. the 5,000-row VWO test-case export.</div>
+          <label class="dropzone" id="dropzone">
+            <input type="file" id="fileInput" accept=".csv,.xlsx,.xls">
+            <div id="dropzoneLabel">Click to choose a file, or drag one here</div>
+          </label>
+        </div>
+
+        <div class="card" id="previewCard" style="display:none">
+          <h2>Preview</h2>
+          <div class="sub" id="previewSub"></div>
+          <div style="overflow-x:auto"><table class="mini" id="previewTable"></table></div>
+
+          <h4>Text columns (concatenated into the embedded document)</h4>
+          <div class="col-picker" id="textColPicker"></div>
+          <h4>Metadata columns (kept in Qdrant payload for filtering)</h4>
+          <div class="col-picker" id="metaColPicker"></div>
+
+          <div style="margin-top:18px">
+            <button class="btn" id="startIngestBtn">Start Ingestion →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- INGEST -->
+      <section class="panel" id="panel-ingest">
+        <div class="card">
+          <h2>2 · Ingestion pipeline</h2>
+          <div class="sub">Read → Build docs → Chunk → Embed (bge-m3 dense+sparse) → Index (Qdrant)</div>
+        </div>
+        <div id="ingestStages"></div>
+      </section>
+
+      <!-- CHUNKS -->
+      <section class="panel" id="panel-chunks">
+        <div class="card">
+          <h2>3 · Chunk viewer</h2>
+          <div class="sub">Browse everything currently indexed in Qdrant. Chunks used in the last chat answer are outlined.</div>
+          <div class="toolbar">
+            <input type="text" id="chunkSearch" placeholder="Search chunk text…">
+            <select id="filterModule"><option value="">All modules</option></select>
+            <select id="filterPriority"><option value="">All priorities</option></select>
+            <input type="text" id="filterJira" placeholder="jira_id (e.g. VWO-1042)" style="width:160px">
+            <button class="btn secondary" id="chunkSearchBtn">Filter</button>
+          </div>
+        </div>
+        <div class="chunk-grid" id="chunkGrid"></div>
+        <div style="text-align:center; margin-top:16px">
+          <button class="btn secondary" id="chunkLoadMore" style="display:none">Load more</button>
+        </div>
+      </section>
+
+      <!-- CHAT -->
+      <section class="panel" id="panel-chat">
+        <div class="chat-shell">
+          <div class="chat-log" id="chatLog">
+            <div class="empty-state">Ask a question about the VWO test-case corpus, or say<br>“create a new test case for JIRA VWO-1234 …” to generate one.</div>
+          </div>
+          <div class="chat-input-row">
+            <input type="text" id="chatInput" placeholder="Ask about the test cases…">
+            <button class="btn" id="chatSendBtn">Send</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

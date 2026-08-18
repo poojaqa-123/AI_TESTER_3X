@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+qdrant_data/
+uploads/*
+!uploads/.gitkeep
+.env
+pip_install.log
+app.log
+app.pid
+.DS_Store
