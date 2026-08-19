@@ -1,0 +1,5 @@
+Architecture Overview Chart
+
+QA Engineer -> QABuddy Chat UI -> Flask App -> Qdrant (hybrid vector index)
+Flask App -> Groq LLM API (answer generation)
+Ingestion Sources -> Ingestion Adapters -> bge-m3 Embeddings -> Qdrant

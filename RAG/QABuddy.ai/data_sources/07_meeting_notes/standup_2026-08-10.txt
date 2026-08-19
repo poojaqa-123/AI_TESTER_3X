@@ -1,0 +1,5 @@
+[09:00:01] Priya: Morning all, quick standup. Anyone blocked?
+[09:00:14] Rahul: The login regression suite is flaky again on Jenkins build 482 — looks like a timing issue in LoginPage, not a real product bug.
+[09:00:40] Priya: Can you file a ticket and tag it flaky-test?
+[09:00:52] Rahul: Already did, VWO-1050.
+[09:01:10] Sana: I'm drafting new test cases for the notifications module gap analysis, should be done today.

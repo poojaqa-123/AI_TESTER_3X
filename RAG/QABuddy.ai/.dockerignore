@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.git/
+.env
+qdrant_data/
+uploads/*
+!uploads/.gitkeep
+data_sources/01_selenium_framework/*
+data_sources/02_playwright_framework/*
+!data_sources/01_selenium_framework/README.md
+!data_sources/02_playwright_framework/README.md
+*.log
+app.pid

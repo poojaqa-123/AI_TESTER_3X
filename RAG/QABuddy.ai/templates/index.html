@@ -1,0 +1,95 @@
+<title>QABuddy.ai</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<div class="topbar">
+  <div class="brand"><span class="dot"></span> QABuddy.ai</div>
+  <nav class="tabs">
+    <button class="tab active" data-tab="sources">Sources</button>
+    <button class="tab" data-tab="chat">Chat</button>
+    <button class="tab" data-tab="chunks">Chunks</button>
+  </nav>
+  <div class="status-pill" id="statusPill">loading…</div>
+</div>
+
+<div class="layout">
+  <div class="content">
+
+    <!-- SOURCES -->
+    <section class="panel active" id="panel-sources">
+      <div class="card">
+        <h2>Data sources</h2>
+        <div class="sub">Drop files into each folder under <code>data_sources/</code>, then ingest. JIRA tickets and Figma designs are Phase 2 and not shown here.</div>
+        <div id="sourceList" class="source-list"></div>
+      </div>
+    </section>
+
+    <!-- CHAT -->
+    <section class="panel" id="panel-chat">
+      <div class="card">
+        <h2>Ask QABuddy</h2>
+        <div class="row">
+          <div>
+            <div class="label">Mode</div>
+            <div class="mode-group" id="modeGroup">
+              <button class="chip mode-chip active" data-mode="answer">Answer</button>
+              <button class="chip mode-chip" data-mode="rca">RCA</button>
+              <button class="chip mode-chip" data-mode="test_design">Test design</button>
+              <button class="chip mode-chip" data-mode="framework_help">Framework help</button>
+            </div>
+          </div>
+          <div>
+            <div class="label">Search only</div>
+            <div class="mode-group" id="sourceFilterGroup">
+              <button class="chip filter-chip" data-type="code">Code</button>
+              <button class="chip filter-chip" data-type="test_case">Test cases</button>
+              <button class="chip filter-chip" data-type="doc">Docs</button>
+              <button class="chip filter-chip" data-type="transcript">Transcripts</button>
+              <button class="chip filter-chip" data-type="chart">Charts</button>
+              <button class="chip filter-chip" data-type="log">Logs</button>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="e.g. Why did LoginSpec fail in build 482? or How do I add a new page object?">
+          <button class="btn" id="chatSend">Ask</button>
+        </div>
+      </div>
+
+      <div class="card" id="chatTrackerCard" style="display:none">
+        <h2 id="chatTrackerTitle">Pipeline</h2>
+        <div id="chatTrackerStages" class="stages"></div>
+      </div>
+
+      <div class="card" id="answerCard" style="display:none">
+        <h2>Answer</h2>
+        <div id="answerText" class="answer-text"></div>
+        <h4>Citations</h4>
+        <div id="citationList" class="citation-list"></div>
+      </div>
+    </section>
+
+    <!-- CHUNKS -->
+    <section class="panel" id="panel-chunks">
+      <div class="card">
+        <h2>Indexed chunks</h2>
+        <div class="row">
+          <input type="text" id="chunkSearch" placeholder="Search text…">
+          <select id="chunkSourceType">
+            <option value="">All source types</option>
+            <option value="code">code</option>
+            <option value="test_case">test_case</option>
+            <option value="doc">doc</option>
+            <option value="transcript">transcript</option>
+            <option value="chart">chart</option>
+            <option value="log">log</option>
+          </select>
+          <button class="btn secondary" id="chunkRefresh">Refresh</button>
+        </div>
+        <div id="chunkList" class="chunk-list"></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
