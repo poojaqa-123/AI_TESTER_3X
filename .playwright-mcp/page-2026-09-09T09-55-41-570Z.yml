@@ -1,0 +1,85 @@
+- generic [ref=e12]:
+  - generic [ref=e14]:
+    - generic [ref=e15]: Explore the things you love.
+    - generic [ref=e34]:
+      - generic [ref=e35]: Log in to Facebook
+      - generic [ref=e46]:
+        - textbox "Email address or mobile number" [ref=e51]
+        - textbox "Password" [ref=e56]
+        - button "Log in" [ref=e60] [cursor=pointer]
+        - link "Forgotten password?" [ref=e67] [cursor=pointer]:
+          - /url: /recover/initiate/?privacy_mutation_token=eyJ0eXBlIjo1LCJjcmVhdGlvbl90aW1lIjoxNzg4OTQ3NzM0fQ%3D%3D&ars=facebook_login
+        - link "Create new account" [ref=e73] [cursor=pointer]:
+          - /url: /reg/?entry_point=login
+        - img "Meta logo" [ref=e78]
+  - separator [ref=e86]
+  - main [ref=e92]:
+    - separator [ref=e94]
+    - generic [ref=e99]:
+      - generic [ref=e101]:
+        - generic [ref=e102]: English (UK)
+        - link "मराठी" [ref=e106] [cursor=pointer]:
+          - /url: "#"
+        - link "हिन्दी" [ref=e109] [cursor=pointer]:
+          - /url: "#"
+        - link "اردو" [ref=e112] [cursor=pointer]:
+          - /url: "#"
+        - link "ગુજરાતી" [ref=e115] [cursor=pointer]:
+          - /url: "#"
+        - link "ಕನ್ನಡ" [ref=e118] [cursor=pointer]:
+          - /url: "#"
+        - link "ਪੰਜਾਬੀ" [ref=e121] [cursor=pointer]:
+          - /url: "#"
+        - link "More languages…" [ref=e124] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e127]:
+        - link "Sign up" [ref=e130] [cursor=pointer]:
+          - /url: https://www.facebook.com/reg/
+        - link "Log in" [ref=e133] [cursor=pointer]:
+          - /url: https://www.facebook.com/login/
+        - link "Messenger" [ref=e136] [cursor=pointer]:
+          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fmessenger.com%2F&h=AUCb5jKwDon4NhiA0zPB7L8dETFDUUoWPUrxwtHNFD1iHGGnXWL85ZQpk5EQPyR-YVhzlj8FZNrufH6gghMGNwhE9mroToeYCY8ui8eXKoZSBEzn4vx3Ejc-O3T_Eq3_FuHexcwBp20JDoCr4MWTLnuJeTU
+        - link "Facebook Lite" [ref=e139] [cursor=pointer]:
+          - /url: https://www.facebook.com/lite/
+        - link "Video" [ref=e142] [cursor=pointer]:
+          - /url: https://www.facebook.com/watch/
+        - link "Meta Pay" [ref=e145] [cursor=pointer]:
+          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fabout.meta.com%2Ftechnologies%2Fmeta-pay&h=AUCb5jKwDon4NhiA0zPB7L8dETFDUUoWPUrxwtHNFD1iHGGnXWL85ZQpk5EQPyR-YVhzlj8FZNrufH6gghMGNwhE9mroToeYCY8ui8eXKoZSBEzn4vx3Ejc-O3T_Eq3_FuHexcwBp20JDoCr4MWTLnuJeTU
+        - link "Meta Store" [ref=e148] [cursor=pointer]:
+          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.meta.com%2F&h=AUCb5jKwDon4NhiA0zPB7L8dETFDUUoWPUrxwtHNFD1iHGGnXWL85ZQpk5EQPyR-YVhzlj8FZNrufH6gghMGNwhE9mroToeYCY8ui8eXKoZSBEzn4vx3Ejc-O3T_Eq3_FuHexcwBp20JDoCr4MWTLnuJeTU
+        - link "Meta Quest" [ref=e151] [cursor=pointer]:
+          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.meta.com%2Fquest%2F&h=AUCb5jKwDon4NhiA0zPB7L8dETFDUUoWPUrxwtHNFD1iHGGnXWL85ZQpk5EQPyR-YVhzlj8FZNrufH6gghMGNwhE9mroToeYCY8ui8eXKoZSBEzn4vx3Ejc-O3T_Eq3_FuHexcwBp20JDoCr4MWTLnuJeTU
+        - link "Ray-Ban Meta" [ref=e154] [cursor=pointer]:
+          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.meta.com%2Fai-glasses%2Fray-ban-meta%2F&h=AUCb5jKwDon4NhiA0zPB7L8dETFDUUoWPUrxwtHNFD1iHGGnXWL85ZQpk5EQPyR-YVhzlj8FZNrufH6gghMGNwhE9mroToeYCY8ui8eXKoZSBEzn4vx3Ejc-O3T_Eq3_FuHexcwBp20JDoCr4MWTLnuJeTU
+        - link "Meta AI" [ref=e157] [cursor=pointer]:
+          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.meta.ai%2F&h=AUCb5jKwDon4NhiA0zPB7L8dETFDUUoWPUrxwtHNFD1iHGGnXWL85ZQpk5EQPyR-YVhzlj8FZNrufH6gghMGNwhE9mroToeYCY8ui8eXKoZSBEzn4vx3Ejc-O3T_Eq3_FuHexcwBp20JDoCr4MWTLnuJeTU
+        - link "Muse" [ref=e160] [cursor=pointer]:
+          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fmuse.ai%2F&h=AUCb5jKwDon4NhiA0zPB7L8dETFDUUoWPUrxwtHNFD1iHGGnXWL85ZQpk5EQPyR-YVhzlj8FZNrufH6gghMGNwhE9mroToeYCY8ui8eXKoZSBEzn4vx3Ejc-O3T_Eq3_FuHexcwBp20JDoCr4MWTLnuJeTU
+        - link "Instagram" [ref=e163] [cursor=pointer]:
+          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F&h=AUCb5jKwDon4NhiA0zPB7L8dETFDUUoWPUrxwtHNFD1iHGGnXWL85ZQpk5EQPyR-YVhzlj8FZNrufH6gghMGNwhE9mroToeYCY8ui8eXKoZSBEzn4vx3Ejc-O3T_Eq3_FuHexcwBp20JDoCr4MWTLnuJeTU
+        - link "Threads" [ref=e166] [cursor=pointer]:
+          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.threads.com%2F&h=AUCb5jKwDon4NhiA0zPB7L8dETFDUUoWPUrxwtHNFD1iHGGnXWL85ZQpk5EQPyR-YVhzlj8FZNrufH6gghMGNwhE9mroToeYCY8ui8eXKoZSBEzn4vx3Ejc-O3T_Eq3_FuHexcwBp20JDoCr4MWTLnuJeTU
+        - link "Privacy Policy" [ref=e169] [cursor=pointer]:
+          - /url: https://www.facebook.com/privacy/policy/?entry_point=facebook_page_footer
+        - link "Privacy Centre" [ref=e172] [cursor=pointer]:
+          - /url: https://www.facebook.com/privacy/center/?entry_point=facebook_page_footer
+        - link "About" [ref=e175] [cursor=pointer]:
+          - /url: https://www.facebook.com/about/
+        - link "Create ad" [ref=e178] [cursor=pointer]:
+          - /url: https://www.facebook.com/ad_campaign/landing.php?placement=pflo&campaign_id=402047449186&nav_source=unknown&extra_1=auto
+        - link "Create Page" [ref=e181] [cursor=pointer]:
+          - /url: https://www.facebook.com/pages/create/?ref_type=site_footer
+        - link "Developers" [ref=e184] [cursor=pointer]:
+          - /url: https://developers.facebook.com/?ref=pf
+        - link "Careers" [ref=e187] [cursor=pointer]:
+          - /url: https://www.facebook.com/careers/?ref=pf
+        - link "Cookies" [ref=e190] [cursor=pointer]:
+          - /url: https://www.facebook.com/policies/cookies/
+        - link "AdChoices" [ref=e193] [cursor=pointer]:
+          - /url: https://www.facebook.com/help/568137493302217
+        - link "Terms" [ref=e196] [cursor=pointer]:
+          - /url: https://www.facebook.com/policies?ref=pf
+        - link "Help" [ref=e199] [cursor=pointer]:
+          - /url: https://www.facebook.com/help/?ref=pf
+        - link "Contact uploading and non-users" [ref=e202] [cursor=pointer]:
+          - /url: https://www.facebook.com/help/637205020878504
